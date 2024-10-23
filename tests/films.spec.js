@@ -291,11 +291,48 @@ describe('Function "orderByYear"', () => {
 });
 
 // Exercise 6
-// YOUR CODE HERE. Test moviesAverageByCategory()
 describe('Function "moviesAverageByCategory"', () => {
-  it('ADD YOUR CODE IN films.spec.js file', () => {
-    expect(typeof hoursToMinutes).toBe('coffee');
+  it('should be declared', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
   });
+
+  it('should return a number', () => {
+    expect(typeof moviesAverageByCategory(movies, 'Crime')).toBe('number');
+  });
+
+  it('should be different from NaN', () => {
+    expect(moviesAverageByCategory(movies, 'Crime')).not.toBeNaN();
+  });
+
+  it(' should return the average score of movies selecting only the genre of the film. With 2 decimals! ', () => {
+    expect(moviesAverageByCategory([
+      {
+        title: 'The Shawshank Redemption',
+        year: 1994,
+        director: 'Frank Darabont',
+        duration: '2h 22min',
+        genre: ['Crime', 'Drama'],
+        score: 9.3
+      },
+      {
+        title: 'The Godfather',
+        year: 1972,
+        director: 'Francis Ford Coppola',
+        duration: '2h 55min',
+        genre: ['Crime', 'Drama'],
+        score: 9.2
+      },
+      {
+        title: 'The Godfather: Part II',
+        year: 1974,
+        director: 'Francis Ford Coppola',
+        duration: '3h 22min',
+        genre: ['Crime', 'Drama'],
+        score: 9
+      }
+    ], 'Crime')).toBe(9.17);
+  });
+
 });
 
 // Exercise 7
