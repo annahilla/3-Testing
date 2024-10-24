@@ -67,7 +67,6 @@ function hoursToMinutes(array) {
     let minutes = 0;
     let hours = 0;
 
-    // Comprobar si hay horas y minutos
     if (movie.duration.includes("h") && movie.duration.includes("min")) {
       const movieDurationSplitted = movie.duration.split(" ");
       hours = Number(movieDurationSplitted[0].split("h")[0]);
@@ -89,12 +88,16 @@ function hoursToMinutes(array) {
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
+function bestFilmOfYear(array, year) {
 
+  let moviesByYear = array.filter(movie => movie.year === year);
+  let sortedMoviesByYear = moviesByYear.sort((a, b) => b.score - a.score);
+  let result = [sortedMoviesByYear[0]];
+
+  console.log("EXERCICE 8 ->", result);
+  return result;
 }
 
-// The following is required to make unit tests work.
-/* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
   module.exports = {
     getAllDirectors,
